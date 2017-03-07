@@ -20,7 +20,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y \
   python-heatclient \
   python-ceilometerclient \
   python-neutronclient \
-  python-gnocchiclient
+  python-gnocchiclient \
   software-properties-common \
   ssh \
   sudo \
