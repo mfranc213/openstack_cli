@@ -14,7 +14,7 @@ RUN apt-get update
 RUN apt-get install -y python-keystoneclient python-swiftclient python-troveclient python-glanceclient python-cinderclient python-heatclient python-ceilometerclient python-neutronclient python-gnocchiclient
 
 RUN curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python2.7
-RUN pip install --upgrade pip setuptools virtualenv virtualenvwrapper
+RUN pip install --upgrade pip setuptools virtualenv virtualenvwrapper cliff
 RUN pip install 'python-openstackclient==3.2.1'
 
 RUN wget -t 3 -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.6.16/terraform_0.6.16_linux_amd64.zip &&  \
