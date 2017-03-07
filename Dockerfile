@@ -26,11 +26,13 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y \
   sudo \
   vim \
   wget \
-  zip
+  zip \
+  && RUN update-alternatives --install /usr/bin/gnocchi gnocchi /usr/bin/python2-gnocchi 10
 
 RUN curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python2.7
-RUN pip install --upgrade pip setuptools virtualenv virtualenvwrapper cliff
+RUN pip install --upgrade pip setuptools virtualenv virtualenvwrapper
 RUN pip install 'python-openstackclient==3.2.1'
+RUN pip install --upgrade cliff
 
 RUN wget -t 3 -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.6.16/terraform_0.6.16_linux_amd64.zip &&  \
        unzip -d /usr/sbin /tmp/terraform.zip && rm /tmp/terraform.zip
