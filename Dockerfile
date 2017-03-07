@@ -4,12 +4,22 @@ MAINTAINER Margaret Frances "mfrance222@gmail.com"
 
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update
 
+RUN export DEBIAN_FRONTEND=noninteractive && \
+  apt-get install apt-utils
+
+RUN export DEBIAN_FRONTEND=noninteractive && \
+  apt-get install -y software-properties-common build-essential git ssh vim curl zip wget
+
+RUN export DEBIAN_FRONTEND=noninteractive && \
+  apt-get install -y python2.7 python2.7-dev libpython2.7-dev libssl-dev libffi-dev
+
 RUN apt-get update
 RUN apt-get install -y python-keystoneclient python-swiftclient python-troveclient python-glanceclient python-cinderclient python-heatclient python-ceilometerclient python-neutronclient
 
 RUN apt-get install -y git ssh vim curl zip wget
 
 RUN curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python2.7
+RUN pip install --upgrade pip setuptools virtualenv virtualenvwrapper
 RUN pip install 'python-openstackclient==3.2.1'
 
 RUN wget -t 3 -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.6.16/terraform_0.6.16_linux_amd64.zip &&  \
