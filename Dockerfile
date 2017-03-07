@@ -8,12 +8,10 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
   apt-get install -y software-properties-common build-essential git ssh vim curl zip wget
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
-  apt-get install -y python2.7 python2.7-dev libpython2.7-dev libssl-dev libffi-dev
+  apt-get install -y python2.7 python2.7-dev libpython2.7-dev libssl-dev libffi-dev sudo
 
 RUN apt-get update
 RUN apt-get install -y python-keystoneclient python-swiftclient python-troveclient python-glanceclient python-cinderclient python-heatclient python-ceilometerclient python-neutronclient
-
-RUN apt-get install -y git ssh vim curl zip wget
 
 RUN curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python2.7
 RUN pip install --upgrade pip setuptools virtualenv virtualenvwrapper
