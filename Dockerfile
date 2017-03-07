@@ -5,9 +5,6 @@ MAINTAINER Margaret Frances "mfrance222@gmail.com"
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get update
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
-  apt-get install apt-utils
-
-RUN export DEBIAN_FRONTEND=noninteractive && \
   apt-get install -y software-properties-common build-essential git ssh vim curl zip wget
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
