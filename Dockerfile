@@ -9,6 +9,7 @@ RUN apt-get install -y python-keystoneclient python-swiftclient python-troveclie
 
 RUN apt-get install -y git ssh vim curl zip wget
 
+RUN curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python2.7
 RUN pip install 'python-openstackclient==3.2.1'
 
 RUN wget -t 3 -O /tmp/terraform.zip https://releases.hashicorp.com/terraform/0.6.16/terraform_0.6.16_linux_amd64.zip &&  \
