@@ -26,8 +26,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y \
   sudo \
   vim \
   wget \
-  zip \
-  && RUN update-alternatives --install /usr/bin/gnocchi gnocchi /usr/bin/python2-gnocchi 10
+  zip 
 
 RUN curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | sudo python2.7
 RUN pip install --upgrade pip setuptools virtualenv virtualenvwrapper
